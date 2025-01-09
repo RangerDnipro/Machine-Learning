@@ -42,14 +42,14 @@ def numpy_tasks():
     print("1D Масив:", array_1d)
     print("Середнє:", mean_value, "Медіана:", median_value, "Стандартне відхилення:", std_deviation)
     print("Масив із парними числами, заміненими на 0:", array_1d_even_zeroed)
-    print("2D Масив:", matrix_2d)
+    print("2D Масив:\n", matrix_2d)
     print("Перший рядок:", first_row)
     print("Останній стовпець:", last_column)
     print("Діагональні елементи:", diagonal_elements)
-    print("Результат Broadcasting:", broadcast_result)
-    print("Унікальні елементи в 5x5 масиві:", unique_elements)
-    print("Рядки із сумою елементів > 150:", rows_above_threshold)
-    print("Перетворений масив (4x5):", array_reshaped)
+    print("Результат Broadcasting:\n", broadcast_result)
+    print("Унікальні елементи в 5x5 масиві:\n", unique_elements)
+    print("Рядки із сумою елементів > 150:\n", rows_above_threshold)
+    print("Перетворений масив (4x5):\n", array_reshaped)
 
 
 def pandas_tasks():
@@ -77,14 +77,10 @@ def pandas_tasks():
         unique_values = "No categorical columns in dataset"
 
     # Виведення результатів
-    print("DataFrame:")
-    print(df)
-    print("Відфільтрований DataFrame:")
-    print(filtered_df)
-    print("Перші 5 рядків набору даних Wine:")
-    print(wine_data.head())
-    print("Загальна статистика:")
-    print(wine_stats)
+    print("DataFrame:\n", df)
+    print("Відфільтрований DataFrame:\n", filtered_df)
+    print("Перші 5 рядків набору даних Wine:\n", wine_data.head())
+    print("Загальна статистика:\n", wine_stats)
     print("Унікальні значення у категорійному стовпці:", unique_values)
 
 
@@ -94,4 +90,3 @@ if __name__ == "__main__":
     numpy_tasks()
     print("\nРезультати Pandas завдань:")
     pandas_tasks()
-
