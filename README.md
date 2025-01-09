@@ -1,2 +1,2 @@
-# Machine-Learning
-Learning ML with Hillel school
+# Вивчення Machine-Learning
+Практика в Machine-Learning в компьютерній школі Hillel
