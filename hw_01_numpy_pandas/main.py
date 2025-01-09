@@ -1,5 +1,5 @@
 """
-Цей файл містить розв'язання завдань з використанням бібліотек NumPy та Pandas.
+Файл містить розв'язання завдань з використанням бібліотек NumPy та Pandas.
 """
 
 import numpy as np
@@ -39,17 +39,29 @@ def numpy_tasks():
     array_reshaped = np.arange(1, 21).reshape(4, 5)  # Масив розміром (4, 5)
 
     # Виведення результатів
+    print("\nОперації над масивом NumPy із 10 випадкових цілих чисел:")
     print("\n1D Масив:", array_1d)
-    print("\nСереднє:", mean_value, "Медіана:", median_value, "Стандартне відхилення:", std_deviation)
-    print("\nМасив із парними числами, заміненими на 0:", array_1d_even_zeroed)
+    print("Середнє:", mean_value, "Медіана:", median_value, "Стандартне відхилення:", std_deviation)
+    print("Масив із парними числами, заміненими на 0:", array_1d_even_zeroed)
+    print("-" * 70)
+    print("\nІндексація та зрізка в NumPy:")
     print("\n2D Масив:\n", matrix_2d)
     print("\nПерший рядок:", first_row)
     print("\nОстанній стовпець:", last_column)
     print("\nДіагональні елементи:", diagonal_elements)
+    print("-" * 70)
+    print("\nBroadcasting:")
+    print("\n2D масив NumPy розміром (3, 3):\n", matrix_2d_broadcast)
+    print("\n1D масив розміром (3,):\n", array_1d_broadcast)
     print("\nРезультат Broadcasting:\n", broadcast_result)
+    print("-" * 70)
+    print("\nОперації над масивом NumPy розміром (5, 5) з випадковими цілими числами:")
     print("\nУнікальні елементи в 5x5 масиві:\n", unique_elements)
     print("\nРядки із сумою елементів > 150:\n", rows_above_threshold)
+    print("-" * 70)
+    print("\nПеретворення 1D масиву NumPy в 2D:")
     print("\nПеретворений масив (4x5):\n", array_reshaped)
+    print("-" * 70)
 
 
 def pandas_tasks():
@@ -59,9 +71,9 @@ def pandas_tasks():
 
     # Завдання 2.1: Створення та фільтрація DataFrame
     data = {
-        "Name": ["Alice", "Bob", "Charlie", "David", "Eve"],
+        "Name": ["Надія", "Петро", "Тетяна", "Дмитро", "Сергій"],
         "Age": [25, 30, 35, 40, 45],
-        "City": ["NY", "LA", "SF", "CHI", "SEA"]
+        "City": ["Київ", "Дніпро", "Одеса", "Суми", "Харків"]
     }
     df = pd.DataFrame(data)  # Створення DataFrame
     df["Score"] = [88, 92, 85, 78, 95]  # Додавання нового стовпця
@@ -83,11 +95,12 @@ def pandas_tasks():
         categorical_column = wine_data.select_dtypes(include=["category"]).columns[0]
         unique_values = wine_data[categorical_column].unique()  # Унікальні значення категорійного стовпця
     else:
-        unique_values = "No categorical columns in dataset"
+        unique_values = "Нема категорійних стовпців у Dataset"
 
     # Виведення результатів
     print("\nDataFrame:\n", df)
     print("\nВідфільтрований DataFrame:\n", filtered_df)
+    print("-" * 70)
     print("\nПерші 5 рядків набору даних Wine:\n", wine_data.head())
     print("\nЗагальна статистика:\n", wine_stats)
     print("\nУнікальні значення у категорійному стовпці:\n", unique_values)
