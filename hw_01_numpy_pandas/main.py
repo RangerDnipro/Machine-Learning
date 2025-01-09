@@ -68,10 +68,19 @@ def pandas_tasks():
     filtered_df = df[df["Score"] > 85]  # Фільтрація за умовою
 
     # Завдання 2.2: Завантаження та аналіз набору даних
-    wine_data = pd.read_csv('wine.csv')  # Завантаження набору даних
+
+    # Визначення коректних назв стовпців
+    column_names = [
+        "Class", "Alcohol", "Malic Acid", "Ash", "Alcalinity of Ash",
+        "Magnesium", "Total Phenols", "Flavanoids", "Nonflavanoid Phenols",
+        "Proanthocyanins", "Color Intensity", "Hue", "OD280/OD315", "Proline"
+    ]  # Додамо назви стовпців, які зазвичай зустрічаються в наборі даних "Wine Dataset"
+    # Завантаження даних із вручну заданими заголовками
+    wine_data = pd.read_csv('wine.csv', header=None, names=column_names)
+    wine_data['Class'] = wine_data['Class'].astype('category')  # Перетворюємо Class на категорійний стовпець
     wine_stats = wine_data.describe()  # Загальна статистика для числових стовпців
-    if not wine_data.select_dtypes(include=["object"]).empty:
-        categorical_column = wine_data.select_dtypes(include=["object"]).columns[0]
+    if not wine_data.select_dtypes(include=["category"]).empty:
+        categorical_column = wine_data.select_dtypes(include=["category"]).columns[0]
         unique_values = wine_data[categorical_column].unique()  # Унікальні значення категорійного стовпця
     else:
         unique_values = "No categorical columns in dataset"
@@ -81,7 +90,7 @@ def pandas_tasks():
     print("\nВідфільтрований DataFrame:\n", filtered_df)
     print("\nПерші 5 рядків набору даних Wine:\n", wine_data.head())
     print("\nЗагальна статистика:\n", wine_stats)
-    print("\nУнікальні значення у категорійному стовпці:", unique_values)
+    print("\nУнікальні значення у категорійному стовпці:\n", unique_values)
 
 
 if __name__ == "__main__":
